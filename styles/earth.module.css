@@ -1,0 +1,101 @@
+/* ===== SECTION ===== */
+.earthSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 0;
+}
+
+/* ===== EARTH ===== */
+.sectionBanner {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  border-radius: 50%;
+  background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAAAAAAD...");
+  background-size: cover;
+  background-position: left;
+  animation: earthRotate 30s linear infinite;
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.2),
+    -5px 0 8px #c3f4ff inset,
+    15px 2px 25px #000 inset,
+    -24px -2px 34px #c3f4ff99 inset,
+    250px 0 44px #00000066 inset,
+    150px 0 38px #000000aa inset;
+}
+
+/* ===== EARTH ROTATION ===== */
+@keyframes earthRotate {
+  from { background-position: 0 0; }
+  to   { background-position: 400px 0; }
+}
+
+/* ===== STARS ===== */
+.star {
+  position: absolute;
+  animation: twinkling calc(1s + var(--i) * 0.4s) infinite;
+}
+
+/* Manual positions */
+.star:nth-child(1) { left: -20px; top: 40px; }
+.star:nth-child(2) { left: -40px; top: 30px; }
+.star:nth-child(3) { left: 350px; top: 90px; }
+.star:nth-child(4) { left: 200px; top: 290px; }
+.star:nth-child(5) { left: 50px; top: 270px; }
+.star:nth-child(6) { left: 250px; top: -50px; }
+.star:nth-child(7) { left: 290px; top: 60px; }
+
+@keyframes twinkling {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 1; }
+}
+
+/* ===== STAR SHAPE ===== */
+.curvedCornerStar {
+  display: flex;
+  position: relative;
+}
+
+.bottomLeft,
+.bottomRight,
+.topLeft,
+.topRight {
+  width: 4px;
+  height: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bottomLeft::before,
+.bottomRight::before,
+.topLeft::before,
+.topRight::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  border-radius: 50%;
+}
+
+/* Corners */
+.bottomLeft::before {
+  bottom: 0;
+  left: 0;
+  box-shadow: -5px 5px 0 white;
+}
+.bottomRight::before {
+  bottom: 0;
+  right: 0;
+  box-shadow: 5px 5px 0 white;
+}
+.topLeft::before {
+  top: 0;
+  left: 0;
+  box-shadow: -5px -5px 0 white;
+}
+.topRight::before {
+  top: 0;
+  right: 0;
+  box-shadow: 5px -5px 0 white;
+}

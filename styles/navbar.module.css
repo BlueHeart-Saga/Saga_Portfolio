@@ -1,0 +1,212 @@
+/* DEFAULT BASE */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  z-index: 100;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* WHEN HERO IS VISIBLE */
+.heroNav {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* AFTER HERO (GRID MUST NOT SHOW) */
+.transparentNav {
+  background: #00000000; /* SOLID */
+  backdrop-filter: none;
+}
+
+
+
+.container {
+  /* max-width: 1120px; */
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Hamburger button */
+.menuButton {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.menuLine {
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  transition: background 0.3s;
+}
+
+.menuButton:hover .menuLine {
+  background: #4c4c4e;
+}
+
+/* Dropdown */
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 28px;
+
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid #1f2933;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+  overflow: hidden;
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes itemSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.dropdownItem {
+  opacity: 0;
+  transform: translateX(14px);
+  animation: itemSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.dropdownItem:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.dropdownItem:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.dropdownItem:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+@media (max-width: 640px) {
+  .dropdownItem {
+    transform: translateY(-6px);
+    animation: itemSlideDown 0.25s ease forwards;
+  }
+
+  @keyframes itemSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.dropdownList {
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.dropdownItem a {
+  display: block;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  color: #9ca3af;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdownItem a:hover {
+  background: #4c4d4e7d;
+  color: #fff;
+}
+
+/* ===== HERO AUTO-SCROLL GRID BACKGROUND ===== */
+.portfolioGridBg {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #0b0b0b;
+
+  /* 🔧 CONFIG */
+  --grid-size: 42px;          /* grid spacing (smaller = denser) */
+  --grid-line: rgba(255, 255, 255, 0.05);
+  --grid-speed: 15s;         /* lower = faster, higher = slower */
+}
+
+/* GRID LAYER */
+.portfolioGridBg::before {
+  content: "";
+  position: absolute;
+  inset: -200%;
+  z-index: 0;
+
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+
+  background-size: var(--grid-size) var(--grid-size);
+
+  animation: gridAutoMove var(--grid-speed) linear infinite;
+  will-change: transform;
+}
+
+/* SOFT PURPLE DEPTH */
+.portfolioGridBg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.08), transparent 45%),
+    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.05), transparent 45%);
+}
+
+/* CONTINUOUS AUTO MOVEMENT */
+@keyframes gridAutoMove {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(
+      var(--grid-size),
+      var(--grid-size),
+      0
+    );
+  }
+}
+
+.portfolioGridBg::before {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}

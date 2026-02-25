@@ -1,0 +1,68 @@
+/* ===== HERO AUTO-SCROLL GRID BACKGROUND ===== */
+.portfolioGridBg {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #0b0b0b;
+
+  /* 🔧 CONFIG */
+  --grid-size: 42px;          /* grid spacing (smaller = denser) */
+  --grid-line: rgba(255, 255, 255, 0.05);
+  --grid-speed: 15s;         /* lower = faster, higher = slower */
+}
+
+/* GRID LAYER */
+.portfolioGridBg::before {
+  content: "";
+  position: absolute;
+  inset: -200%;
+  z-index: 0;
+
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+
+  background-size: var(--grid-size) var(--grid-size);
+
+  animation: gridAutoMove var(--grid-speed) linear infinite;
+  will-change: transform;
+}
+
+/* SOFT PURPLE DEPTH */
+.portfolioGridBg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.08), transparent 45%),
+    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.05), transparent 45%);
+}
+
+/* CONTINUOUS AUTO MOVEMENT */
+@keyframes gridAutoMove {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(
+      var(--grid-size),
+      var(--grid-size),
+      0
+    );
+  }
+}
+
+.portfolioGridBg::before {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.centerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}

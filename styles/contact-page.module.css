@@ -1,0 +1,160 @@
+/* ===== PAGE ===== */
+
+.page {
+  min-height: 100vh;
+  background: black;
+  color: white;
+  padding: 5rem 1.5rem;
+}
+
+/* ===== PROFILE HEADER ===== */
+
+.profileSection {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.profileSection h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.profileSection p {
+  margin-top: 0.75rem;
+  color: #9ca3af;
+}
+
+/* ===== GRID ===== */
+
+.contactGrid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+/* ===== INFO CARD ===== */
+
+.infoCard {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.profileBlock {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #22c55e);
+}
+
+.details {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+/* ===== FORM ===== */
+
+.form {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.form input,
+.form textarea {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.65rem 0.75rem;
+  color: white;
+}
+
+.form button {
+  margin-top: 0.5rem;
+  background: #22c55e;
+  color: black;
+  border: none;
+  border-radius: 999px;
+  padding: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background: #16a34a;
+}
+
+/* ===== MAP ===== */
+
+.mapSection {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.mapWrapper {
+  margin-top: 1rem;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mapWrapper iframe {
+  width: 100%;
+  height: 320px;
+  border: none;
+}
+
+/* ===== SOCIAL ===== */
+
+.socialSection {
+  margin-top: 3.5rem;
+  text-align: center;
+}
+
+.socialRow {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.socialRow a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.socialRow a:hover {
+  background: #22c55e;
+  color: black;
+  transform: translateY(-3px);
+}
+
+.socialRow svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}

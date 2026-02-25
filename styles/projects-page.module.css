@@ -1,0 +1,106 @@
+/* ===== PAGE ===== */
+/* ===== PUZZLE SECTION ===== */
+.puzzleSection {
+  background: #000;
+  padding-top: 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+.section {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  background: #000;
+  color: #fff;
+}
+
+.heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+}
+
+/* ===== GRID ===== */
+.grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* ===== CARD ===== */
+.card {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+  background-color: #011522;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== TOP BAR ===== */
+.tools {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.circle {
+  padding: 0 4px;
+}
+
+.box {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.red {
+  background-color: #ff605c;
+}
+
+.yellow {
+  background-color: #ffbd44;
+}
+
+.green {
+  background-color: #00ca4e;
+}
+
+/* ===== CONTENT ===== */
+.cardContent {
+  padding: 1rem;
+}
+
+.title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.desc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #d1d5db;
+}
+
+/* ===== VIEW LINK ===== */
+.view {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #a78bfa;
+}
